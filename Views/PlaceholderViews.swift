@@ -8,12 +8,6 @@
 import SwiftUI
 
 // Временные заглушки для всех экранов
-struct LaunchScreenView: View {
-    var body: some View {
-        Text("Launch Screen")
-    }
-}
-
 struct OnboardingView: View {
     var body: some View {
         Text("Onboarding")
