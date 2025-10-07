@@ -12,9 +12,13 @@ import Combine
 class AppState: ObservableObject {
     @Published var currentScreen: AppScreen = .launch
     @Published var isLoading = true
+    @Published var user = User()  // ← ДОБАВЬ ЭТУ СТРОКУ!
+    
+    func saveSettings() {
+        print("Settings saved: Sound - \(user.isSoundEnabled), Music - \(user.isMusicEnabled)")
+    }
     
     func loadAppData() {
-        // Имитация загрузки данных
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.isLoading = false
             self.currentScreen = .onboarding
@@ -28,5 +32,5 @@ enum AppScreen {
     case main
     case game(planetId: String)
     case achievements
-    case settings
+    case settings  // ← ДОБАВЬ settings!
 }

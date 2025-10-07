@@ -8,8 +8,13 @@
 import Foundation
 
 struct User: Codable {
-    var username: String = "Космонавт"
+    var username: String = "Space Explorer"
     var stars: Int = 0
     var unlockedPlanets: [String] = ["planet_1"]
+    
+    // Настройки
+    var isSoundEnabled: Bool = true
+    var isMusicEnabled: Bool = true
+    var isHapticEnabled: Bool = true
 }
 

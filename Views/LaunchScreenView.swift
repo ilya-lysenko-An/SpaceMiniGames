@@ -4,7 +4,6 @@
 //
 //  Created by Илья Лысенко on 07.10.2025.
 //
-
 import SwiftUI
 
 struct LaunchScreenView: View {
@@ -44,6 +43,17 @@ struct LaunchScreenView: View {
                     .foregroundColor(.yellow)
                     .opacity(opacity)
                     .padding(.top, 5)
+                
+                // Temporary settings button - удалим позже
+                Button("Test Settings") {
+                    appState.currentScreen = .settings
+                }
+                .padding()
+                .background(Color.white)
+                .foregroundColor(.black)
+                .cornerRadius(10)
+                .opacity(opacity)
+                .padding(.top, 30)
             }
         }
         .onAppear {
