@@ -19,18 +19,22 @@ class AppState: ObservableObject {
     }
     
     func loadAppData() {
+        print("🚀 Starting app loading...")
+        
+        // Имитация загрузки данных
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            print("✅ App loading complete - switching to onboarding")
             self.isLoading = false
             self.currentScreen = .onboarding
         }
     }
 }
 
-enum AppScreen {
+enum AppScreen: Equatable {
     case launch
     case onboarding
     case main
     case game(planetId: String)
     case achievements
-    case settings  // ← ДОБАВЬ settings!
+    case settings
 }

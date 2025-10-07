@@ -43,17 +43,6 @@ struct LaunchScreenView: View {
                     .foregroundColor(.yellow)
                     .opacity(opacity)
                     .padding(.top, 5)
-                
-                // Temporary settings button - удалим позже
-                Button("Test Settings") {
-                    appState.currentScreen = .settings
-                }
-                .padding()
-                .background(Color.white)
-                .foregroundColor(.black)
-                .cornerRadius(10)
-                .opacity(opacity)
-                .padding(.top, 30)
             }
         }
         .onAppear {
