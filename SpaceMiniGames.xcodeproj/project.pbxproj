@@ -14,6 +14,8 @@
 		EBA181482E953D1900CC921E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181472E953D1600CC921E /* SettingsView.swift */; };
 		EBA1814A2E95809D00CC921E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181492E95809800CC921E /* OnboardingView.swift */; };
 		EBA1815A2E965C2A00CC921E /* CustomOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */; };
+		EBA1815C2E9693EF00CC921E /* MainGalaxyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1815B2E9693ED00CC921E /* MainGalaxyView.swift */; };
+		EBA181602E96957400CC921E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1815F2E96957300CC921E /* GameView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		EBA181472E953D1600CC921E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EBA181492E95809800CC921E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOnboardingView.swift; sourceTree = "<group>"; };
+		EBA1815B2E9693ED00CC921E /* MainGalaxyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGalaxyView.swift; sourceTree = "<group>"; };
+		EBA1815F2E96957300CC921E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -84,6 +88,8 @@
 		EBA1813F2E95266200CC921E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBA1815F2E96957300CC921E /* GameView.swift */,
+				EBA1815B2E9693ED00CC921E /* MainGalaxyView.swift */,
 				EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */,
 				EBA181492E95809800CC921E /* OnboardingView.swift */,
 				EBA181472E953D1600CC921E /* SettingsView.swift */,
@@ -168,9 +174,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBA181482E953D1900CC921E /* SettingsView.swift in Sources */,
+				EBA1815C2E9693EF00CC921E /* MainGalaxyView.swift in Sources */,
 				EBA181422E95277800CC921E /* User.swift in Sources */,
 				EBA181442E9527FE00CC921E /* AppState.swift in Sources */,
 				EBA1814A2E95809D00CC921E /* OnboardingView.swift in Sources */,
+				EBA181602E96957400CC921E /* GameView.swift in Sources */,
 				EBA181412E95276C00CC921E /* PlaceholderViews.swift in Sources */,
 				EBA181462E952A6E00CC921E /* LaunchScreenView.swift in Sources */,
 				EBA1815A2E965C2A00CC921E /* CustomOnboardingView.swift in Sources */,
