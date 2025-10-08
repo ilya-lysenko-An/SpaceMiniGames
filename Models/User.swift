@@ -13,6 +13,7 @@ struct User: Codable {
     var unlockedPlanets: [String] = ["planet_1"]
     var totalScore: Int = 0  // ← Добавляем общий счет
     var rank: SpaceRank = .cadet  // ← Текущее звание
+    var hasCompletedOnboarding: Bool = false
     
     // Настройки
     var isSoundEnabled: Bool = true

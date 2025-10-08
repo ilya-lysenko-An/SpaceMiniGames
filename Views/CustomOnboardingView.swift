@@ -67,14 +67,16 @@ struct CustomOnboardingView: View {
             }
             
             Button(action: {
-                withAnimation {
-                    if currentPage < 2 {
+                if currentPage < 2 {
+                    withAnimation {
                         currentPage += 1
-                    } else {
-                        appState.currentScreen = .main
                     }
+                } else {
+                    print("🎯 Start Journey pressed - completing onboarding")
+                    appState.completeOnboarding()
                 }
-            }) {
+            })
+            {
                 Text(currentPage == 2 ? "Start Journey" : "Next")
                     .fontWeight(.bold)
                     .foregroundColor(.black)
