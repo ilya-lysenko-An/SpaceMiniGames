@@ -68,6 +68,18 @@ struct MainGalaxyView: View {
                                 appState.currentScreen = .game(planetId: "reaction")
                             }
                             
+                            // планета 4 - пазл 
+                            PlanetCard(
+                                title: "Space Puzzle",
+                                subtitle: "Logic Game",
+                                systemImage: "square.grid.3x3.fill",
+                                color: .purple,
+                                isLocked: false,
+                                stars: 0
+                            ) {
+                                appState.currentScreen = .game(planetId: "puzzle")
+                            }
+                            
                             PlanetCard(
                                 title: "???",
                                 subtitle: "Locked",
