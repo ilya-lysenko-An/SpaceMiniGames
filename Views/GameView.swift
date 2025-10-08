@@ -16,8 +16,8 @@ struct GameView: View {
         switch planetId {
         case "arkanoid":
             ArkanoidGame()
-      //  case "memory":
-           // MemoryGame()
+        case "memory":
+            MemoryGame()
         default:
             // Заглушка для неизвестных игр
             DefaultGameView(planetId: planetId)
