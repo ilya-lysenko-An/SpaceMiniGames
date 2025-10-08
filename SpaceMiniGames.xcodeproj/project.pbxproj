@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB5619FC2E96DB3E00DFF521 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5619FB2E96DB3C00DFF521 /* ProfileView.swift */; };
 		EBA181412E95276C00CC921E /* PlaceholderViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181402E95267600CC921E /* PlaceholderViews.swift */; };
 		EBA181422E95277800CC921E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1813E2E9525B100CC921E /* User.swift */; };
 		EBA181442E9527FE00CC921E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1813C2E95252800CC921E /* AppState.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB5619FB2E96DB3C00DFF521 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		EBA1812D2E9520C400CC921E /* SpaceMiniGames.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceMiniGames.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBA1813C2E95252800CC921E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		EBA1813E2E9525B100CC921E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		EBA1813F2E95266200CC921E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB5619FB2E96DB3C00DFF521 /* ProfileView.swift */,
 				EBA1815F2E96957300CC921E /* GameView.swift */,
 				EBA1815B2E9693ED00CC921E /* MainGalaxyView.swift */,
 				EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */,
@@ -217,6 +220,7 @@
 				EBA181652E96990A00CC921E /* ArkanoidViewModel.swift in Sources */,
 				EBA181412E95276C00CC921E /* PlaceholderViews.swift in Sources */,
 				EBA181462E952A6E00CC921E /* LaunchScreenView.swift in Sources */,
+				EB5619FC2E96DB3E00DFF521 /* ProfileView.swift in Sources */,
 				EBA1816F2E96A4B900CC921E /* PuzzleGame.swift in Sources */,
 				EBA181632E9698B700CC921E /* ArkanoidGame.swift in Sources */,
 				EBA1816B2E96A33100CC921E /* ReactionGame.swift in Sources */,

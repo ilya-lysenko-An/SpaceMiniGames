@@ -96,21 +96,37 @@ struct MainGalaxyView: View {
                     .padding(.top, 20)
                 }
                 
-                // Кнопка настроек
                 VStack {
                     HStack {
+                        // Кнопка профиля - слева вверху
+                        Button(action: {
+                            appState.currentScreen = .profile
+                        }) {
+                            Image(systemName: "person.circle.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(Color.white.opacity(0.2))
+                                .clipShape(Circle())
+                        }
+                        
                         Spacer()
+                        
+                        // Кнопка настроек - справа вверху
                         Button(action: {
                             appState.currentScreen = .settings
                         }) {
                             Image(systemName: "gearshape.fill")
                                 .font(.title2)
                                 .foregroundColor(.white)
-                                .padding()
+                                .padding(10)
                                 .background(Color.white.opacity(0.2))
                                 .clipShape(Circle())
                         }
                     }
+                    .padding(.horizontal)
+                    .padding(.top, 10)
+                    
                     Spacer()
                 }
                 .padding()

@@ -25,6 +25,8 @@ struct ContentView: View {
                 AchievementsView()
             case .settings:
                 SettingsView()
+            case .profile:
+                ProfileView()
             }
         }
         .environmentObject(appState)
