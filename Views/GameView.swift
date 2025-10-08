@@ -5,6 +5,7 @@
 //  Created by Илья Лысенко on 08.10.2025.
 //
 
+// Views/GameView.swift
 import SwiftUI
 
 struct GameView: View {
@@ -12,23 +13,32 @@ struct GameView: View {
     @EnvironmentObject var appState: AppState
     
     var body: some View {
+        switch planetId {
+        case "arkanoid":
+            ArkanoidGame()
+      //  case "memory":
+           // MemoryGame()
+        default:
+            // Заглушка для неизвестных игр
+            DefaultGameView(planetId: planetId)
+        }
+    }
+}
+
+// Временная заглушка
+struct DefaultGameView: View {
+    let planetId: String
+    @EnvironmentObject var appState: AppState
+    
+    var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [.black, .blue, .purple],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
+            LinearGradient(colors: [.black, .blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                .ignoresSafeArea()
             
-            VStack(spacing: 20) {
+            VStack {
                 Text("Game: \(planetId)")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+                    .font(.title)
                     .foregroundColor(.white)
-                
-                Text("This game is under development")
-                    .font(.body)
-                    .foregroundColor(.white.opacity(0.8))
                 
                 Button("Back to Galaxy") {
                     appState.currentScreen = .main
