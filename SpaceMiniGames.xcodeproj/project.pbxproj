@@ -13,6 +13,7 @@
 		EBA181462E952A6E00CC921E /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181452E952A6C00CC921E /* LaunchScreenView.swift */; };
 		EBA181482E953D1900CC921E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181472E953D1600CC921E /* SettingsView.swift */; };
 		EBA1814A2E95809D00CC921E /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181492E95809800CC921E /* OnboardingView.swift */; };
+		EBA1815A2E965C2A00CC921E /* CustomOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		EBA181452E952A6C00CC921E /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		EBA181472E953D1600CC921E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		EBA181492E95809800CC921E /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -82,6 +84,7 @@
 		EBA1813F2E95266200CC921E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EBA181592E965C1F00CC921E /* CustomOnboardingView.swift */,
 				EBA181492E95809800CC921E /* OnboardingView.swift */,
 				EBA181472E953D1600CC921E /* SettingsView.swift */,
 				EBA181452E952A6C00CC921E /* LaunchScreenView.swift */,
@@ -170,6 +173,7 @@
 				EBA1814A2E95809D00CC921E /* OnboardingView.swift in Sources */,
 				EBA181412E95276C00CC921E /* PlaceholderViews.swift in Sources */,
 				EBA181462E952A6E00CC921E /* LaunchScreenView.swift in Sources */,
+				EBA1815A2E965C2A00CC921E /* CustomOnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

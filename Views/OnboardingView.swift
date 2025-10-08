@@ -15,7 +15,6 @@ struct OnboardingView: View {
     
     var body: some View {
         ZStack {
-            // Космический фон
             LinearGradient(
                 colors: [.black, .blue, .purple],
                 startPoint: .topLeading,
@@ -24,23 +23,34 @@ struct OnboardingView: View {
             .ignoresSafeArea()
             
             VStack {
-                // Контент онбординга
+                // Ключевое изменение: добавляем .id() чтобы пересоздавать View
                 TabView(selection: $currentPage) {
-                    OnboardingPage1().tag(0)
-                    OnboardingPage2().tag(1)
-                    OnboardingPage3().tag(2)
+                    OnboardingPage1()
+                        .tag(0)
+                        .id(0) // ← Добавляем id
+                    
+                    OnboardingPage2()
+                        .tag(1)
+                        .id(1) // ← Добавляем id
+                    
+                    OnboardingPage3()
+                        .tag(2)
+                        .id(2) // ← Добавляем id
                 }
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 
-                // Индикатор и кнопка
                 onboardingFooter
                     .opacity(footerOpacity)
             }
         }
         .onChange(of: currentPage) { newPage in
-            // При смене страницы сбрасываем и заново запускаем анимацию
             footerOpacity = 0.0
             startFooterAnimation()
+            
+            // Принудительно обновляем состояние для анимаций
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                // Это заставит SwiftUI пересоздать View и вызвать onAppear
+            }
         }
         .onAppear {
             startFooterAnimation()
@@ -99,8 +109,12 @@ struct OnboardingView: View {
 }
 
 // Первая страница онбординга
+
 struct OnboardingPage1: View {
     @State private var starOpacity = 0.0
+    @State private var starScale = 0.8
+    @State private var starScale2 = 0.8
+    @State private var starOpacity2 = 0.0
     @State private var titleOpacity = 0.0
     @State private var subtitleOpacity = 0.0
     
@@ -108,17 +122,20 @@ struct OnboardingPage1: View {
         VStack(spacing: 30) {
             Spacer()
             
-            // Анимированные звезды
             ZStack {
+                // Первая звезда - основная
                 Image(systemName: "sparkles")
                     .font(.system(size: 80))
                     .foregroundColor(.yellow)
                     .opacity(starOpacity)
+                    .scaleEffect(starScale)
                 
+                // Вторая звезда - дополнительная
                 Image(systemName: "sparkles")
                     .font(.system(size: 60))
                     .foregroundColor(.white)
-                    .opacity(starOpacity)
+                    .opacity(starOpacity2)
+                    .scaleEffect(starScale2)
                     .offset(x: 30, y: -20)
             }
             
@@ -143,18 +160,34 @@ struct OnboardingPage1: View {
             Spacer()
         }
         .onAppear {
-            withAnimation(.easeIn(duration: 1.0)) {
+            // 1. Появление звезд
+            withAnimation(.easeIn(duration: 1.2)) {
                 starOpacity = 1.0
+                starOpacity2 = 1.0
             }
             
-            withAnimation(.easeIn(duration: 0.8).delay(0.3)) {
+            // 2. Пульсация звезд (ограниченная по времени)
+            withAnimation(.easeInOut(duration: 0.8).repeatCount(4, autoreverses: true)) {
+                starScale = 1.3
+                starScale2 = 1.2
+            }
+            
+            // 3. Замирание звезд после пульсации
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+                withAnimation(.easeOut(duration: 0.5)) {
+                    starScale = 1.0
+                    starScale2 = 1.0
+                }
+            }
+            
+            // 4. Появление текста
+            withAnimation(.easeIn(duration: 0.8).delay(0.8)) {
                 titleOpacity = 1.0
             }
             
-            withAnimation(.easeIn(duration: 0.8).delay(0.6)) {
+            withAnimation(.easeIn(duration: 0.8).delay(1.2)) {
                 subtitleOpacity = 1.0
             }
-            
         }
     }
 }

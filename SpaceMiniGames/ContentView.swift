@@ -16,7 +16,7 @@ struct ContentView: View {
             case .launch:
                 LaunchScreenView()
             case .onboarding:
-                OnboardingView()
+                CustomOnboardingView()
             case .main:
                 MainGalaxyView()
             case .game(let planetId):
