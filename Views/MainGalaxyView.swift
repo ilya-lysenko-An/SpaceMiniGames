@@ -56,16 +56,16 @@ struct MainGalaxyView: View {
                                 appState.currentScreen = .game(planetId: "memory")
                             }
                             
-                            // Заблокированные планеты
+                            // Планета 3 - реакция 
                             PlanetCard(
-                                title: "???",
-                                subtitle: "Locked",
-                                systemImage: "lock.fill",
-                                color: .gray,
-                                isLocked: true,
+                                title: "Cosmic Reaction",
+                                subtitle: "Speed Test",
+                                systemImage: "bolt.fill",
+                                color: .yellow,
+                                isLocked: false,
                                 stars: 0
                             ) {
-                                // Заблокировано
+                                appState.currentScreen = .game(planetId: "reaction")
                             }
                             
                             PlanetCard(

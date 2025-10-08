@@ -18,6 +18,8 @@ struct GameView: View {
             ArkanoidGame()
         case "memory":
             MemoryGame()
+        case "reaction":
+            ReactionGame()
         default:
             // Заглушка для неизвестных игр
             DefaultGameView(planetId: planetId)

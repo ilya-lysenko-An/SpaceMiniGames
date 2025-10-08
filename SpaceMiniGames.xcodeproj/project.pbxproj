@@ -20,6 +20,9 @@
 		EBA181652E96990A00CC921E /* ArkanoidViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181642E96990800CC921E /* ArkanoidViewModel.swift */; };
 		EBA181672E96A21C00CC921E /* MemoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181662E96A21A00CC921E /* MemoryGame.swift */; };
 		EBA181692E96A23A00CC921E /* MemoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA181682E96A23700CC921E /* MemoryViewModel.swift */; };
+		EBA1816B2E96A33100CC921E /* ReactionGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1816A2E96A32F00CC921E /* ReactionGame.swift */; };
+		EBA1816D2E96A35300CC921E /* ReactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1816C2E96A35000CC921E /* ReactionViewModel.swift */; };
+		EBA1816F2E96A4B900CC921E /* PuzzleGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1816E2E96A4B600CC921E /* PuzzleGame.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +40,9 @@
 		EBA181642E96990800CC921E /* ArkanoidViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArkanoidViewModel.swift; sourceTree = "<group>"; };
 		EBA181662E96A21A00CC921E /* MemoryGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryGame.swift; sourceTree = "<group>"; };
 		EBA181682E96A23700CC921E /* MemoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewModel.swift; sourceTree = "<group>"; };
+		EBA1816A2E96A32F00CC921E /* ReactionGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionGame.swift; sourceTree = "<group>"; };
+		EBA1816C2E96A35000CC921E /* ReactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactionViewModel.swift; sourceTree = "<group>"; };
+		EBA1816E2E96A4B600CC921E /* PuzzleGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuzzleGame.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -81,6 +87,7 @@
 		EBA1813B2E95251000CC921E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EBA1816C2E96A35000CC921E /* ReactionViewModel.swift */,
 				EBA181682E96A23700CC921E /* MemoryViewModel.swift */,
 				EBA181642E96990800CC921E /* ArkanoidViewModel.swift */,
 				EBA1813C2E95252800CC921E /* AppState.swift */,
@@ -113,6 +120,8 @@
 		EBA181612E96981A00CC921E /* Games */ = {
 			isa = PBXGroup;
 			children = (
+				EBA1816E2E96A4B600CC921E /* PuzzleGame.swift */,
+				EBA1816A2E96A32F00CC921E /* ReactionGame.swift */,
 				EBA181662E96A21A00CC921E /* MemoryGame.swift */,
 				EBA181622E96983300CC921E /* ArkanoidGame.swift */,
 			);
@@ -195,6 +204,7 @@
 			files = (
 				EBA181482E953D1900CC921E /* SettingsView.swift in Sources */,
 				EBA1815C2E9693EF00CC921E /* MainGalaxyView.swift in Sources */,
+				EBA1816D2E96A35300CC921E /* ReactionViewModel.swift in Sources */,
 				EBA181422E95277800CC921E /* User.swift in Sources */,
 				EBA181442E9527FE00CC921E /* AppState.swift in Sources */,
 				EBA1814A2E95809D00CC921E /* OnboardingView.swift in Sources */,
@@ -203,7 +213,9 @@
 				EBA181652E96990A00CC921E /* ArkanoidViewModel.swift in Sources */,
 				EBA181412E95276C00CC921E /* PlaceholderViews.swift in Sources */,
 				EBA181462E952A6E00CC921E /* LaunchScreenView.swift in Sources */,
+				EBA1816F2E96A4B900CC921E /* PuzzleGame.swift in Sources */,
 				EBA181632E9698B700CC921E /* ArkanoidGame.swift in Sources */,
+				EBA1816B2E96A33100CC921E /* ReactionGame.swift in Sources */,
 				EBA1815A2E965C2A00CC921E /* CustomOnboardingView.swift in Sources */,
 				EBA181692E96A23A00CC921E /* MemoryViewModel.swift in Sources */,
 			);
