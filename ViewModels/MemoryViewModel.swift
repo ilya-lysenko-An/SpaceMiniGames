@@ -16,6 +16,8 @@ class MemoryViewModel: ObservableObject {
     @Published var activeButtons: Set<Int> = []
     @Published var highlightedButtons: Set<Int> = []
     
+    var onLevelComplete: ((Int) -> Void)?
+    
     private var sequence: [Int] = []
     private var playerSequence: [Int] = []
     private var isShowingSequence = false
@@ -127,8 +129,12 @@ class MemoryViewModel: ObservableObject {
     }
     
     private func levelCompleted() {
-        score += level * 100
+        score += level * 10
         level += 1
+        
+        let pointsEarned = 17 // 17 очков за уровень (было 170)
+        onLevelComplete?(pointsEarned)
+        
         gameStatus = "Perfect! Level \(level)"
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {

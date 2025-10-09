@@ -99,7 +99,12 @@ struct PuzzleGame: View {
             }
         }
         .onAppear {
-            gameVM.startGame()
+            gameVM.onLevelComplete = { points in
+                           print("🧩 Puzzle Level completed! Points: \(points)")
+                           appState.addGamePoints(gameType: "Puzzle", basePoints: points)
+                       }
+                       
+                       gameVM.startGame()
         }
     }
 }

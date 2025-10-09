@@ -99,7 +99,13 @@ struct ArkanoidGame: View {
             }
         }
         .onAppear {
-            gameVM.startGame()
+            
+        gameVM.onGameComplete = { points, isVictory in
+                            print("🎮 Arkanoid: \(points) points (\(isVictory ? "VICTORY" : "GAME OVER"))")
+                            appState.addGamePoints(gameType: "Arkanoid", basePoints: points)
+                        }
+                        
+                        gameVM.startGame()
         }
     }
 }

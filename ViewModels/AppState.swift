@@ -80,6 +80,14 @@ class AppState: ObservableObject {
         }
     }
     
+    func addGamePoints(gameType: String, basePoints: Int, bonus: Int = 0) {
+            let pointsEarned = basePoints + bonus 
+            
+            print("🎮 \(gameType): \(basePoints) + \(bonus) = \(pointsEarned) points")
+            
+            addToTotalScore(pointsEarned)
+        }
+    
     private func loadUserData() {
         let savedUser = dataService.loadUser()
         self.user = savedUser

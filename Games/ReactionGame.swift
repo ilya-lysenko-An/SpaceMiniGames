@@ -94,6 +94,10 @@ struct ReactionGame: View {
             }
         }
         .onAppear {
+                        gameVM.onGameComplete = { score in
+                            print("🎯 Reaction Game completed! Score: \(score)")
+                            appState.addGamePoints(gameType: "Reaction", basePoints: score)
+                        }
             gameVM.startGame()
         }
     }

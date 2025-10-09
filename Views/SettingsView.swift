@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject var appState: AppState
+    @FocusState private var isTextFieldFocused: Bool
     
     var body: some View {
         ZStack {
@@ -84,10 +85,15 @@ struct SettingsView: View {
                                     .foregroundColor(.white.opacity(0.8))
                                 
                                 TextField("Player Name", text: $appState.user.username)
-                                            .foregroundColor(.white)
-                                            .padding(10)
-                                            .background(Color.white.opacity(0.1))
-                                            .cornerRadius(8)                            }
+                                    .foregroundColor(.white)
+                                    .padding(10)
+                                    .background(Color.white.opacity(0.1))
+                                    .cornerRadius(8)
+                                    .focused($isTextFieldFocused) // 🔥 ДОБАВЛЯЕМ ФОКУС
+                                    .onChange(of: appState.user.username) { _ in
+                                        appState.saveSettings()
+                                    }
+                            }
                         }
                         
                         // Обучение
@@ -137,26 +143,31 @@ struct SettingsView: View {
                     .padding()
                 }
             }
+            .onTapGesture {
+
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                                to: nil, from: nil, for: nil)
+            }
         }
     }
-}
-
-// Компонент стеклянной карточки
-struct GlassCard<Content: View>: View {
-    let content: Content
     
-    init(@ViewBuilder content: () -> Content) {
-        self.content = content()
-    }
-    
-    var body: some View {
-        content
-            .padding(20)
-            .background(Color.white.opacity(0.1))
-            .cornerRadius(16)
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.white.opacity(0.2), lineWidth: 1)
-            )
+    // Компонент стеклянной карточки
+    struct GlassCard<Content: View>: View {
+        let content: Content
+        
+        init(@ViewBuilder content: () -> Content) {
+            self.content = content()
+        }
+        
+        var body: some View {
+            content
+                .padding(20)
+                .background(Color.white.opacity(0.1))
+                .cornerRadius(16)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color.white.opacity(0.2), lineWidth: 1)
+                )
+        }
     }
 }

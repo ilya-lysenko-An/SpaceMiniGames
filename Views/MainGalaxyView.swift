@@ -147,47 +147,82 @@ struct PlanetCard: View {
     
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 12) {
+            VStack(spacing: 0) { // 🔥 УБИРАЕМ SPACING МЕЖДУ ЭЛЕМЕНТАМИ
+                
+                // 🔥 ВЕРХНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
+                Spacer(minLength: 0)
+                
+                // Кружок планеты
                 ZStack {
                     Circle()
                         .fill(color.opacity(0.3))
-                        .frame(width: 80, height: 80)
+                        .frame(width: 70, height: 70)
                     
                     Image(systemName: systemImage)
-                        .font(.title2)
+                        .font(.title3)
                         .foregroundColor(isLocked ? .gray : color)
                     
                     if isLocked {
                         Circle()
                             .fill(Color.black.opacity(0.7))
-                            .frame(width: 80, height: 80)
+                            .frame(width: 70, height: 70)
                         
                         Image(systemName: "lock.fill")
-                            .font(.title2)
+                            .font(.title3)
                             .foregroundColor(.white)
                     }
                 }
+                .frame(width: 70, height: 70)
                 
-                Text(title)
-                    .font(.headline)
-                    .foregroundColor(isLocked ? .gray : .white)
+                // 🔥 ОТСТУП МЕЖДУ КРУЖКОМ И ТЕКСТОМ
+                Spacer()
+                    .frame(height: 16)
                 
-                Text(subtitle)
-                    .font(.caption)
-                    .foregroundColor(isLocked ? .gray : .white.opacity(0.8))
+                // Текст
+                VStack(spacing: 6) {
+                    Text(title)
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundColor(isLocked ? .gray : .white)
+                        .multilineTextAlignment(.center)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                    
+                    Text(subtitle)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundColor(isLocked ? .gray : .white.opacity(0.8))
+                        .multilineTextAlignment(.center)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                }
+                .frame(height: 40)
+                .frame(maxWidth: .infinity)
+                
+                // 🔥 ОТСТУП МЕЖДУ ТЕКСТОМ И ЗВЕЗДАМИ
+                Spacer()
+                    .frame(height: 8)
                 
                 // Звезды за прохождение
                 if stars > 0 {
-                    HStack(spacing: 2) {
+                    HStack(spacing: 3) {
                         ForEach(0..<3, id: \.self) { index in
                             Image(systemName: index < stars ? "star.fill" : "star")
-                                .font(.caption)
+                                .font(.system(size: 10))
                                 .foregroundColor(.yellow)
                         }
                     }
+                    .frame(height: 12)
+                } else {
+                    // 🔥 ПУСТОЕ ПРОСТРАНСТВО ДЛЯ ВЫРАВНИВАНИЯ
+                    Spacer()
+                        .frame(height: 12)
                 }
+                
+                // 🔥 НИЖНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
+                Spacer(minLength: 0)
             }
-            .padding()
+            .padding(.vertical, 16)
+            .padding(.horizontal, 12)
+            .frame(width: 140, height: 160)
             .background(Color.white.opacity(0.1))
             .cornerRadius(16)
             .overlay(

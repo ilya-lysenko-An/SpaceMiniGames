@@ -25,6 +25,9 @@ class ReactionViewModel: ObservableObject {
     @Published var isGameOver = false
     @Published var activeTargets: [ReactionTarget] = []
     
+    // 🔥 ДОБАВЛЯЕМ ЭТУ СТРОКУ - callback для очков
+    var onGameComplete: ((Int) -> Void)?
+    
     private var timer: Timer?
     private var spawnTimer: Timer?
     private let gameWidth: CGFloat = 350
@@ -60,10 +63,10 @@ class ReactionViewModel: ObservableObject {
         if let index = activeTargets.firstIndex(where: { $0.id == targetId }) {
             // Удаляем цель и добавляем очки
             activeTargets.remove(at: index)
-            score += 10
+            score += 1
             
             // Бонус за быстрый тап
-            score += 5
+            score += 1
         }
     }
     
@@ -79,6 +82,16 @@ class ReactionViewModel: ObservableObject {
         activeTargets.removeAll { target in
             now.timeIntervalSince(target.spawnTime) > 3.0 // Цели живут 3 секунды
         }
+    }
+    
+    private func gameOver() {
+        timer?.invalidate()
+        spawnTimer?.invalidate()
+        
+        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ CALLBACK С ОЧКАМИ
+        onGameComplete?(score)
+        
+        isGameOver = true
     }
     
     private func spawnTarget() {
@@ -103,12 +116,6 @@ class ReactionViewModel: ObservableObject {
                 }
             }
         }
-    }
-    
-    private func gameOver() {
-        timer?.invalidate()
-        spawnTimer?.invalidate()
-        isGameOver = true
     }
     
     deinit {

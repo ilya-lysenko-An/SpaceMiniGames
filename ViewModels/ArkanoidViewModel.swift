@@ -17,6 +17,8 @@ class ArkanoidViewModel: ObservableObject {
     @Published var isGameOver = false
     @Published var isVictory = false
     
+    var onGameComplete: ((Int, Bool) -> Void)?
+    
     let paddleWidth: CGFloat = 80
     private var ballSpeed = CGSize(width: 3, height: -3)
     private var timer: Timer?
@@ -61,17 +63,6 @@ class ArkanoidViewModel: ObservableObject {
         paddlePosition = CGPoint(x: newX, y: paddlePosition.y)
     }
     
-    private func gameOver() {
-           timer?.invalidate()
-           isGameOver = true  // ← Показываем экран Game Over
-       }
-       
-       private func victory() {
-           timer?.invalidate()
-           isVictory = true  // ← Показываем экран Victory
-       }
-       
-      
     private func setupBlocks() {
         blocks = []
         let colors: [Color] = [.red, .orange, .yellow, .green, .blue]
@@ -88,6 +79,26 @@ class ArkanoidViewModel: ObservableObject {
                 ))
             }
         }
+    }
+    
+    private func gameOver() {
+        timer?.invalidate()
+        
+        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПРОИГРЫША
+        onGameComplete?(score, false) // false = проигрыш
+        
+        isGameOver = true
+    }
+    
+    private func victory() {
+        timer?.invalidate()
+        
+        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПОБЕДЫ
+        let victoryBonus = 5
+        let totalPoints = score + victoryBonus
+        onGameComplete?(totalPoints, true) // true = победа
+        
+        isVictory = true
     }
     
     private func updateGame() {
@@ -141,7 +152,7 @@ class ArkanoidViewModel: ObservableObject {
                 
                 block.isDestroyed = true
                 blocks[index] = block
-                score += 100
+                score += 10
                 ballSpeed.height *= -1
                 
                 // Проверка победы
