@@ -84,7 +84,7 @@ class ArkanoidViewModel: ObservableObject {
     private func gameOver() {
         timer?.invalidate()
         
-        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПРОИГРЫША
+        //  ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПРОИГРЫША
         onGameComplete?(score, false) // false = проигрыш
         
         isGameOver = true
@@ -93,7 +93,7 @@ class ArkanoidViewModel: ObservableObject {
     private func victory() {
         timer?.invalidate()
         
-        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПОБЕДЫ
+        //  ДОБАВЛЯЕМ ВЫЗОВ ОЧКОВ ДЛЯ ПОБЕДЫ
         let victoryBonus = 5
         let totalPoints = score + victoryBonus
         onGameComplete?(totalPoints, true) // true = победа

@@ -21,7 +21,7 @@ class PuzzleViewModel: ObservableObject {
     @Published var isLevelComplete = false
     @Published var puzzlePieces: [PuzzlePiece] = []
     
-    // 🔥 ДОБАВЛЯЕМ CALLBACK ДЛЯ ОЧКОВ
+    //  ДОБАВЛЯЕМ CALLBACK ДЛЯ ОЧКОВ
     var onLevelComplete: ((Int) -> Void)?
     
     var gridSize: Int { 3 } // 3x3 grid
@@ -169,7 +169,7 @@ class PuzzleViewModel: ObservableObject {
         // Если дошли сюда - пазл решен!
         isLevelComplete = true
         
-        // 🔥 ДОБАВЛЯЕМ НАЧИСЛЕНИЕ ОЧКОВ
+        //  ДОБАВЛЯЕМ НАЧИСЛЕНИЕ ОЧКОВ
         let pointsEarned = 3 // 3 очка за уровень
         onLevelComplete?(pointsEarned)
     }

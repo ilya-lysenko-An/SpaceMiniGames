@@ -99,7 +99,7 @@ struct MemoryGame: View {
         }
         .onAppear {
             gameVM.onLevelComplete = { points in
-                    print("🧠 Memory Level completed! Points: \(points)")
+                    print(" Memory Level completed! Points: \(points)")
                     appState.addGamePoints(gameType: "Memory", basePoints: points)
                 }
                 gameVM.startGame()

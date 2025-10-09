@@ -147,9 +147,9 @@ struct PlanetCard: View {
     
     var body: some View {
         Button(action: action) {
-            VStack(spacing: 0) { // 🔥 УБИРАЕМ SPACING МЕЖДУ ЭЛЕМЕНТАМИ
+            VStack(spacing: 0) { //  УБИРАЕМ SPACING МЕЖДУ ЭЛЕМЕНТАМИ
                 
-                // 🔥 ВЕРХНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
+                //  ВЕРХНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
                 Spacer(minLength: 0)
                 
                 // Кружок планеты
@@ -174,7 +174,7 @@ struct PlanetCard: View {
                 }
                 .frame(width: 70, height: 70)
                 
-                // 🔥 ОТСТУП МЕЖДУ КРУЖКОМ И ТЕКСТОМ
+                //  ОТСТУП МЕЖДУ КРУЖКОМ И ТЕКСТОМ
                 Spacer()
                     .frame(height: 16)
                 
@@ -197,7 +197,7 @@ struct PlanetCard: View {
                 .frame(height: 40)
                 .frame(maxWidth: .infinity)
                 
-                // 🔥 ОТСТУП МЕЖДУ ТЕКСТОМ И ЗВЕЗДАМИ
+                //  ОТСТУП МЕЖДУ ТЕКСТОМ И ЗВЕЗДАМИ
                 Spacer()
                     .frame(height: 8)
                 
@@ -212,12 +212,12 @@ struct PlanetCard: View {
                     }
                     .frame(height: 12)
                 } else {
-                    // 🔥 ПУСТОЕ ПРОСТРАНСТВО ДЛЯ ВЫРАВНИВАНИЯ
+                    //  ПУСТОЕ ПРОСТРАНСТВО ДЛЯ ВЫРАВНИВАНИЯ
                     Spacer()
                         .frame(height: 12)
                 }
                 
-                // 🔥 НИЖНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
+                //  НИЖНИЙ SPACER ДЛЯ РАВНОМЕРНОГО РАСПРЕДЕЛЕНИЯ
                 Spacer(minLength: 0)
             }
             .padding(.vertical, 16)

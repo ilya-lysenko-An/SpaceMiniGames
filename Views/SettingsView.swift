@@ -32,7 +32,7 @@ struct SettingsView: View {
                     Spacer()
                     
                     Button("Done") {
-                        print("🔄 Settings Done pressed")
+                        print(" Settings Done pressed")
                         appState.saveSettings()        // ← СОХРАНЯЕМ НАСТРОЙКИ!
                         appState.currentScreen = .main
                     }
@@ -89,7 +89,7 @@ struct SettingsView: View {
                                     .padding(10)
                                     .background(Color.white.opacity(0.1))
                                     .cornerRadius(8)
-                                    .focused($isTextFieldFocused) // 🔥 ДОБАВЛЯЕМ ФОКУС
+                                    .focused($isTextFieldFocused) //  ДОБАВЛЯЕМ ФОКУС
                                     .onChange(of: appState.user.username) { _ in
                                         appState.saveSettings()
                                     }

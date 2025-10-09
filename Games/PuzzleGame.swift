@@ -100,7 +100,7 @@ struct PuzzleGame: View {
         }
         .onAppear {
             gameVM.onLevelComplete = { points in
-                           print("🧩 Puzzle Level completed! Points: \(points)")
+                           print(" Puzzle Level completed! Points: \(points)")
                            appState.addGamePoints(gameType: "Puzzle", basePoints: points)
                        }
                        

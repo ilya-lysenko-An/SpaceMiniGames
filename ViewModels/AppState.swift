@@ -20,47 +20,35 @@ class AppState: ObservableObject {
         loadUserData() // ← Загружаем данные при создании
     }
     
-    /* func saveSettings() {
-        dataService.saveUser(user)
-        print("Settings saved: Sound - \(user.isSoundEnabled), Music - \(user.isMusicEnabled)")
-    } */
-    
     func loadAppData() {
-        print("🚀 Starting app loading...")
+        print(" Starting app loading...")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            print("✅ App loading complete")
+            print(" App loading complete")
             self.isLoading = false
             
             if self.user.hasCompletedOnboarding {
                 self.currentScreen = .main
-                print("🎯 User has completed onboarding - going to main screen")
+                print(" User has completed onboarding - going to main screen")
             } else {
                 self.currentScreen = .onboarding
-                print("🆕 First launch - showing onboarding")
+                print(" First launch - showing onboarding")
             }
         }
     }
     
     func completeOnboarding() {
-        print("🎉 COMPLETE ONBOARDING CALLED!")
+        print(" COMPLETE ONBOARDING CALLED!")
         user.hasCompletedOnboarding = true
         dataService.saveUser(user)
-        print("💾 Saved user with onboarding: \(user.hasCompletedOnboarding)")
+        print(" Saved user with onboarding: \(user.hasCompletedOnboarding)")
         currentScreen = .main
     }
-    
-   /* func completeOnboarding() {
-        user.hasCompletedOnboarding = true
-        dataService.saveUser(user)
-        currentScreen = .main
-        print("🎉 Onboarding completed and saved")
-    } */
 
     func resetOnboarding() {
         user.hasCompletedOnboarding = false
         dataService.saveUser(user)
-        print("🔄 Onboarding reset")
+        print(" Onboarding reset")
     }
     
     func addToTotalScore(_ points: Int) {
@@ -76,14 +64,14 @@ class AppState: ObservableObject {
         if newRank != currentRank {
             user.rank = newRank
             dataService.saveUser(user)
-            print("🎉 New rank achieved: \(newRank.rawValue)")
+            print(" New rank achieved: \(newRank.rawValue)")
         }
     }
     
     func addGamePoints(gameType: String, basePoints: Int, bonus: Int = 0) {
             let pointsEarned = basePoints + bonus 
             
-            print("🎮 \(gameType): \(basePoints) + \(bonus) = \(pointsEarned) points")
+            print(" \(gameType): \(basePoints) + \(bonus) = \(pointsEarned) points")
             
             addToTotalScore(pointsEarned)
         }
@@ -92,7 +80,7 @@ class AppState: ObservableObject {
         let savedUser = dataService.loadUser()
         self.user = savedUser
         
-        print("🔍 DEBUG loadUserData:")
+        print(" DEBUG loadUserData:")
         print("   - Username: '\(savedUser.username)'")
         print("   - Score: \(savedUser.totalScore)")
         print("   - Onboarding: \(savedUser.hasCompletedOnboarding)")

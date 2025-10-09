@@ -25,7 +25,7 @@ class ReactionViewModel: ObservableObject {
     @Published var isGameOver = false
     @Published var activeTargets: [ReactionTarget] = []
     
-    // 🔥 ДОБАВЛЯЕМ ЭТУ СТРОКУ - callback для очков
+    // ДОБАВЛЯЕМ ЭТУ СТРОКУ - callback для очков
     var onGameComplete: ((Int) -> Void)?
     
     private var timer: Timer?
@@ -88,7 +88,7 @@ class ReactionViewModel: ObservableObject {
         timer?.invalidate()
         spawnTimer?.invalidate()
         
-        // 🔥 ДОБАВЛЯЕМ ВЫЗОВ CALLBACK С ОЧКАМИ
+        //  ДОБАВЛЯЕМ ВЫЗОВ CALLBACK С ОЧКАМИ
         onGameComplete?(score)
         
         isGameOver = true

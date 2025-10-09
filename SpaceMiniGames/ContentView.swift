@@ -31,11 +31,11 @@ struct ContentView: View {
         }
         .environmentObject(appState)
         .onAppear {
-            print("📱 ContentView appeared")
+            print(" ContentView appeared")
             appState.loadAppData()
         }
         .onChange(of: appState.currentScreen) { newScreen in
-            print("🔄 Screen changed to: \(newScreen)")
+            print(" Screen changed to: \(newScreen)")
         }
     }
 }

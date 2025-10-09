@@ -101,7 +101,7 @@ struct ArkanoidGame: View {
         .onAppear {
             
         gameVM.onGameComplete = { points, isVictory in
-                            print("🎮 Arkanoid: \(points) points (\(isVictory ? "VICTORY" : "GAME OVER"))")
+                            print(" Arkanoid: \(points) points (\(isVictory ? "VICTORY" : "GAME OVER"))")
                             appState.addGamePoints(gameType: "Arkanoid", basePoints: points)
                         }
                         
