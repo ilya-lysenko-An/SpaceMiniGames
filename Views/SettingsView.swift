@@ -151,7 +151,6 @@ struct SettingsView: View {
         }
     }
     
-    // Компонент стеклянной карточки
     struct GlassCard<Content: View>: View {
         let content: Content
         

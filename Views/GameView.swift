@@ -23,7 +23,6 @@ struct GameView: View {
         case "puzzle":
             PuzzleGame()
         default:
-            // Заглушка для неизвестных игр
             DefaultGameView(planetId: planetId)
         }
     }

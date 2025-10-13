@@ -22,7 +22,6 @@ struct CustomOnboardingView: View {
             .ignoresSafeArea()
             
             VStack {
-                // Простая замена TabView
                 Group {
                     if currentPage == 0 {
                         OnboardingPage1()
